@@ -1,61 +1,37 @@
 public with sharing class TripletComparator {
-	
+
+//A wrapper class to store the 3 integer values	
 	public class TripletInputWrapper {
-			
 		public Integer val1 {get;set;}
-				
 		public Integer val2 {get;set;}
-				
 		public Integer val3 {get;set;}
-				
 		public TripletInputWrapper(Integer val1,Integer val2,Integer val3){
-					
 			this.val1=val1;
-						
 			this.val2=val2;
-						
 			this.val3=val3;
-				
 		}
-		
 	}
 
-	
+//A wrapper class to process result by comparing both triplets
 	public class TripletPairOutput{
-			
-	public Integer res1 {get;set;}
-			
-	public Integer res2 {get;set;}
-			
+		public Integer res1 {get;set;}
+		public Integer res2 {get;set;}
 		public TripletPairOutput(Integer res1,Integer res2){
-					
 			this.res1=res1;
-						
 			this.res2=res2;
-				
 		}
-		
 	}
 
-	
 	public TripletPairOutput process(TripletInputWrapper triplet1, TripletInputWrapper triplet2){
-			
 	return new TripletPairOutput(
-					
 	(triplet1.val1 > triplet2.val1 ? 1: 0) + (triplet1.val2 > triplet2.val2 ? 1: 0) + (triplet1.val3 > triplet2.val3 ? 1: 0),
-			
 			(triplet2.val1 > triplet1.val1 ? 1: 0) + (triplet2.val2 > triplet1.val2 ? 1: 0) + (triplet2.val3 > triplet1.val3 ? 1: 0)
-		
-				);
-		
+		);
 	}	
 
 	public TripletInputWrapper getTriplet(Integer val1,Integer val2,Integer val3){
-			
 	return new TripletInputWrapper(val1,val2,val3);
-		
 	}
-
 }
 
 /*
